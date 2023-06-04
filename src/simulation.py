@@ -17,11 +17,6 @@ class Simulation:
             self.environment.add_organism(organism)
 
     def step(self):
-        """
-        Run one time step of the simulation.
-
-        This could involve things like moving organisms, having organisms act, updating the environment, etc.
-        """
         new_organisms = []
         for row in self.environment.grid:
             for organism in row:

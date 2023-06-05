@@ -21,6 +21,11 @@ class Simulation:
         for row in self.environment.grid:
             for organism in row:
                 if organism is not None:
+                    organism.chance_of_death()
+                    if not organism.alive:
+                        self.environment.remove_organism(organism)
+                        continue
+
                     organism.move()
                     child = organism.reproduce()
                     if child:
@@ -40,4 +45,4 @@ class Simulation:
         for step in range(steps):
             self.step()
             self.environment.plot(step)  # pass the current time step to plot
-            time.sleep(0.1)
+            time.sleep(1.0)
